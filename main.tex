@@ -1,0 +1,173 @@
+% ============================================================
+%  Rauschenbach, B. V. — Spatial Constructions in Painting
+%  English translation typeset in LuaLaTeX
+%  Source: Russian edition, Nauka, Moscow, 1980 (290 pp.)
+% ============================================================
+\documentclass[12pt, twoside, openright]{book}
+
+% --- Engine / fonts ------------------------------------------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguages{russian, greek}
+
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+%\setotherlanguage{russian}
+\newfontfamily{\russianfont}[Script=Cyrillic]{FreeSerif} %CMU Serif
+
+%\usepackage[russian]{babel} % For hyphenation and babel commands
+%\babelfont[russian]{rm}{FreeSerif}
+
+% --- Page geometry (approx. original 175×225 mm) -------------
+\usepackage[
+  paperwidth  = 175mm,
+  paperheight = 225mm,
+  top         = 20mm,
+  bottom      = 22mm,
+  inner       = 22mm,
+  outer       = 18mm,
+  headheight  = 14pt,
+  headsep     = 8mm,
+]{geometry}
+
+% --- Typography ----------------------------------------------
+\usepackage{microtype}
+\usepackage{setspace}
+\setstretch{1.1}
+
+% --- Headers / footers ---------------------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\itshape Rauschenbach · Spatial Constructions in Painting}
+\fancyhead[RO]{\small\itshape \leftmark}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.0pt} % 0.4pt
+
+% --- Chapter / section titles --------------------------------
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\large\bfseries\centering}
+  {\chaptername\ \thechapter}
+  {1em}
+  {\MakeUppercase}
+\titlespacing{\chapter}{0pt}{2em}{2em}
+
+% --- Footnotes -----------------------------------------------
+\usepackage[hang, flushmargin]{footmisc}
+
+% --- Miscellaneous -------------------------------------------
+\usepackage{graphicx}   % for future use
+\usepackage{booktabs}   % for tables
+\usepackage{amsmath}
+\usepackage{float} % figure placement with [H] flag
+
+% ============================================================
+%  CUSTOM MACROS
+% ============================================================
+
+% Source-page break marker
+%   Usage: \srcpage{47}
+\newcommand{\srcpage}[1]{%
+  \vspace{0.6\baselineskip}%
+  % \noindent\hrulefill%
+  \vspace{0.1\baselineskip}%
+  \begin{center}
+    {\noindent\small \rule[]{0.385\linewidth}{0.2pt}[\textit{sp.}\,#1]\rule[]{0.4\linewidth}{0.3pt}}
+  \end{center}%
+  \vspace{0.6\baselineskip}%
+}
+
+%%% old rule styles inside \verb|center|
+   %\rule[]{0.3\linewidth}{0.2pt}
+   % {\small [\textit{\hspace{2pt} -- \hspace{2pt} sp.\,#1 \hspace{2pt} -- \hspace{2pt}}]}
+
+% Figure placeholder (no image files; centered descriptive block)
+%   Usage: \figblock{3}{Caption text here.}
+\newcommand{\figblock}[2]{%
+  \begin{center}
+    \vspace{0.5em}
+    \setlength{\fboxsep}{8pt}%
+    \fbox{%
+      \begin{minipage}{0.85\linewidth}
+        \centering\small\itshape
+        [Fig.\,#1.\ #2]
+      \end{minipage}%
+    }%
+    \vspace{0.5em}
+  \end{center}%
+}
+
+% Equation placeholder (appendices)
+%   Usage: \eqblock{(2.3)}{p.\,249}
+\newcommand{\eqblock}[2]{%
+  \begin{center}
+    \vspace{0.3em}
+    {\small\itshape [Equation #1 — #2]}
+    \vspace{0.3em}
+  \end{center}%
+}
+
+% Table placeholder
+%   Usage: \tableblock{1}{Brief description of table contents.}
+\newcommand{\tableblock}[2]{%
+  \begin{center}
+    \vspace{0.5em}
+    \setlength{\fboxsep}{8pt}%
+    \fbox{%
+      \begin{minipage}{0.85\linewidth}
+        \centering\small\itshape
+        [Table\,#1.\ #2]
+      \end{minipage}%
+    }%
+    \vspace{0.5em}
+  \end{center}%
+}
+
+%%% for frontmatter
+%\usepackage{hyperref}
+%\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+\usepackage{url}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
+
+
+% ============================================================
+\begin{document}
+
+% ---- Front matter ------------------------------------------
+\frontmatter
+\include{frontmatter}
+
+% ---- Main matter -------------------------------------------
+\mainmatter
+\include{chapter01}
+\include{chapter02}
+\include{chapter03}
+\include{chapter04}
+\include{chapter05}
+\include{chapter06}
+\include{chapter07}
+\include{chapter08}
+\include{chapter09}
+\include{chapter10}
+\include{conclusion}
+\include{abbreviations}
+
+% ---- Appendices --------------------------------------------
+\appendix
+\include{appendix01}
+\include{appendix02}
+\include{appendix03}
+\include{appendix04}
+\include{appendix05}
+\include{appendix06}
+\include{appendix07}
+\include{appendix08}
+\include{appendix09}
+\include{appendix10}
+\include{appendix11}
+
+\end{document}

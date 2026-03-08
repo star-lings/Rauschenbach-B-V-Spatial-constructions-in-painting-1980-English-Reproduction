@@ -1,0 +1,213 @@
+% ============================================================
+%  EDITORIAL NOTES — Translation and Typesetting Record
+%  Rauschenbach, B. V. — Spatial Constructions in Painting
+% ============================================================
+%
+% This file is NOT included in main.tex. It records decisions,
+% reconstructions, and uncertainties made during translation.
+% ============================================================
+
+\documentclass[12pt]{article}
+\usepackage{fontspec}
+\usepackage[russian,english]{babel} % For hyphenation and babel commands
+\setmainfont{TeX Gyre Pagella} % TeX Gyre Pagella
+\babelfont[russian]{rm}{FreeSerif}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=30mm}
+\usepackage{parskip}
+\usepackage{booktabs}
+
+\begin{document}
+
+\title{Editorial Notes\\[0.5ex]
+  \large Rauschenbach, \emph{Spatial Constructions in Painting}\\
+  English Translation and Typesetting Record}
+\date{}
+\maketitle
+
+\section*{General}
+
+Source text extracted directly from the embedded PDF text layer via
+\texttt{pdfminer} (the PDF already contained clean Cyrillic text; no OCR was
+required). Raw extraction saved as \texttt{ocr\_output/full\_text.txt}.
+
+All mathematical notation in the appendices was garbled by the text extraction
+(the original used a different font encoding for math). Equations have been
+reconstructed from the surrounding prose and from standard results of
+perspective geometry. The reconstructions are noted below appendix by appendix.
+
+\bigskip
+\noindent\textbf{Translator conventions:}
+\begin{itemize}
+  \item ``\foreignlanguage{russian}{чертёж}'' (technical drawing, engineering drawing) $\to$ \emph{technical drawing}
+  \item ``\foreignlanguage{russian}{рисунок}'' (picture, pictorial rendering) $\to$ \emph{picture}
+  \item ``\foreignlanguage{russian}{перцептивная перспектива}'' $\to$ \emph{perceptual perspective}
+  \item ``\foreignlanguage{russian}{константность}'' $\to$ \emph{constancy} (perceptual psychology term)
+  \item ``\foreignlanguage{russian}{сетчаточный образ}'' $\to$ \emph{retinal image}
+\end{itemize}
+
+% ============================================================
+\section*{Frontmatter}
+
+\textbf{Preface, p.\,3:} Footnote refers to Rauschenbach's previous monograph
+on perspective in Old Russian painting (1975). Title given in full.
+
+\textbf{Statement of the Problem:} The title ``\foreignlanguage{russian}{Постановка задачи: черчение и
+рисование}'' was rendered as ``Statement of the Problem: Technical Drawing and
+Pictorial Rendering'' to preserve the author's terminological distinction, which
+is central to the argument of the whole book.
+
+% ============================================================
+\section*{Chapter I (pp.\,15--41)}
+
+Thirteen figures (Figs.\,1--13), all replaced with \verb|\figblock{}{}|
+placeholders. Twenty-one footnotes, all translated.
+
+No mathematical content requiring reconstruction.
+
+% ============================================================
+\section*{Appendix 1 (pp.\,244--246)}
+
+\textbf{Equations (1.1)--(1.5):} Reconstructed from the prose description
+of the perspective geometry. The three dimensionless variables in (1.1) are
+$l = b/l_0$ (normalised depth), $y = y_1/H$ (normalised height on canvas),
+and $x = x_1/B$ (normalised lateral position). These follow directly from
+triangle-similarity arguments for a viewpoint at height $H$, picture plane at
+distance $l_0$, and depicted point at depth $b$ and lateral offset $B$.
+
+All five equations are standard results of elementary perspective geometry and
+are self-consistent. The OCR showed garbled variable names (Cyrillic italic
+letters extracted as wrong Latin characters); the correct variables were
+unambiguous from the prose.
+
+% ============================================================
+\section*{Appendix 2 (pp.\,247--253)}
+
+\textbf{Equation (2.2):} The OCR captured two fragments of the derivative
+expression. Reconstructed as
+\[
+  \frac{d(dx_2)}{dl} = \frac{P_1'(l)(1+l) - P_1(l)}{(1+l)^2}\,dx
+\]
+by differentiating $dx_2 = P_1(l)\,dx/(1+l)$ with respect to $l$ (treating
+$dx$ as constant), consistent with equation (2.3) derived immediately after.
+
+\textbf{Equation (2.7):} The integral for the cylinder generator length. The
+limits $l_P$ to $\infty$ were present in the extraction; the integrand
+$P_1(l)/(1+l)^2$ follows from equations (2.5) and (2.4) combined.
+
+\textbf{Equations (2.10)--(2.14):} The two-area argument for the room interior.
+The source distinguishes $S_2'$ (perceptual area of the entrance plane at
+$l = l_P$) from $S_2''$ (perceptual area of the walls, at $l > l_P$). Labels
+in extraction were partially garbled; assigned based on prose context.
+
+\textbf{Equations (2.15)--(2.17):} For the exterior parallelpiped face, the
+height formula (2.15) reconstructed from the prose description of the geometry
+(face $ABB'A'$ at lateral distance $H_1$, projected to picture plane at depth
+$l_1$).
+
+% ============================================================
+\section*{Appendix 3 (pp.\,253--257)}
+
+\textbf{Note on closing paragraph (p.\,256--257):} The source sentence
+``\foreignlanguage{russian}{Располагая функцией} $P_1(l)$, \foreignlanguage{russian}{даваемой формулой} (3.1), \foreignlanguage{russian}{пользуясь формулой}
+(2.1) \foreignlanguage{russian}{и уравнением} (2.6), \foreignlanguage{russian}{которое для принятой функции} $P_1(l)$\ldots'' is
+interrupted mid-sentence by a footnote and then continues on the next page with
+equation (3.2) --- a closed-form evaluation of the integral~(2.6) using
+$P_1(l) = 1 + \arctan l$:
+\[
+  y_2 = \left[1 + \arctan l\right]\frac{dl}{(1+l)^2}
+  \;\xrightarrow{\;\int\;}\;
+  \frac{1}{2}\ln\!\frac{1+l^2}{(1+l)^2} + \frac{1}{2(1+l)},
+  \quad (3.2)
+\]
+together with Fig.\,3.3 (graphs of $P_1(l)$ and $P_1'(l)$ vs.\ $1+l$), and a
+concluding discussion resolving the apparent contradiction between Appendix~2
+(impossibility of depicting perceptual space on a plane) and the road example in
+Appendix~3 (a road lies entirely in the subject plane, so it is not a
+three-dimensional spatial object).
+
+\textbf{Action taken:} The closing paragraph of \texttt{appendix03.tex} as
+first written ended with a bridging sentence. Equation~(3.2), Figure~3.3, and
+the remaining three paragraphs of Appendix~3 have since been added to
+\texttt{appendix03.tex}.
+
+% ============================================================
+\section*{Figures throughout}
+
+All figures are replaced by \verb|\figblock{N}{caption}| placeholders
+throughout. Captions have been translated from the source where legible; some
+figure captions in the appendices are implicit (the figures are referenced in
+the text but carry no separate caption line in the source).
+
+% ============================================================
+\section*{Appendices 4--5 (pp.\,257--262)}
+
+\textbf{Appendix 4} (\texttt{appendix04.tex}, pp.\,257--260): Axonometry. Equations
+(4.1)--(4.5) reconstructed from prose. Key result: $\Delta_2 < \Delta_1$ (perceptual
+perspective is more axonometric than linear); perceptual perspective achieves ideal
+axonometry at $l=0$ \emph{and} as $l\to\infty$, whereas linear perspective only as
+$l\to\infty$. Fig.\,4.1 placeholder.
+
+\textbf{Appendix 5} (\texttt{appendix05.tex}, pp.\,260--262): Reverse perspective due to
+superconstancy. Summary of Holway--Boring experiment. Smirnov--Volokitina data (5--10\%
+binocular increase). Equation (5.1): modified boundary condition
+$dP_1/dl|_{l=0} = 1+\alpha$ for binocular vision. Figs.\,5.1--5.2 placeholders.
+
+% ============================================================
+\section*{Appendices 6--11 (pp.\,262--287)}
+
+\textbf{Appendix 6} (\texttt{appendix06.tex}, pp.\,262--270): Reverse perspective when
+viewing objects in foreshortening. Introduces the \emph{zero-line} concept (the line
+of gaze that acts as reference for lateral scaling). Full-constancy approximation
+$P_1(l)=1+l$ for small $l$. Equations (6.1)--(6.19). Key qualitative result:
+inequality (6.12) shows objectively parallel strips seen obliquely appear to diverge
+(reverse perspective). Quantitative estimate: maximum divergence angle
+$\alpha^* \approx 6°$ for $\Delta H = 1.5$\,m, optimal gaze angle $\beta^* \approx 39°$.
+Equations (6.13)--(6.16) involve the slope formula for the mixed coordinate system;
+(6.16) reconstructed from context (OCR too fragmentary to recover exactly).
+Experimental confirmation: 2--3° divergence observed by the author. Bakushinsky
+reference. Figs.\,6.1--6.4 placeholders.
+
+\textbf{Appendix 7} (\texttt{appendix07.tex}, pp.\,270--274): Reverse perspective and
+Lobachevsky geometry. Luneburg (1947) result; Blumenfeld (1913) experiments.
+Lambert quadrilateral construction in perceptual Lobachevsky space. Equations (7.1)
+and (7.2) are standard results of Lobachevsky geometry (angle of parallelism). Result:
+$k > a$ (far side of quadrilateral exceeds near side = reverse perspective). Concluding
+discussion of variable curvature (Lobachevsky near observer, Riemann far away) and
+analogy with Einstein space. Fig.\,7.1 placeholder. Two footnotes translated (Luneburg
+bibliography; Blumenfeld reference). One in-text footnote on the correspondence of
+the construction to human psychology.
+
+\textbf{Appendix 8} (\texttt{appendix08.tex}, pp.\,274--281): The rigid system of
+perceptual perspective. Functions $P_2(l) = P_1(l)/(1+l)$ and
+$P_3(l) = \int_0^l P_1(t)/(1+t)^2\,dt$ defined and used throughout. Equations
+(8.1)--(8.10). The distortion factor $\varepsilon$ formula (8.3) reconstructed as
+$(1+l_B)\int_{l_B}^\infty P_1/(1+t)^2\,dt \cdot [P_1(l_B)]^{-1}$; the text's claim
+that $\varepsilon$ exceeds unity by ``only 20\%'' at $l_B=1$ is approximate
+(the formula gives $\approx$25\%). Table of $P_1$, $P_2$, $P_3$ transcribed and
+verified. Commutativity proof preserved. Equations (8.8)--(8.10) comparing natural
+visual perception, perceptual perspective, and linear perspective. Fig.\,8.1
+placeholder. One footnote (commutativity of linear perspective).
+
+\textbf{Appendix 9} (\texttt{appendix09.tex}, pp.\,281--284): Zero lines and their
+curvature. Equation (9.1) reconstructed as $\tilde{y}_2 = [P_3(l)/P_3(l_*)] y_1(l_*)$
+(a proportional rescaling ensuring $\tilde{y}_2 = y_1$ at $l=l_*$); the OCR fragment
+``У 2 = Р3(l)/Р3(l*) + У1 -- [У1(l*)]'' was ambiguous and the formula was derived
+from the stated property that the perceptual and linear ordinates coincide at $l = l^*$.
+Experimental result: readings 0.765 vs 0.866 (four observers, $l_0 = 2$\,m) confirming
+curvature of perceived zero line. Figs.\,9.1--9.2 placeholders.
+
+\textbf{Appendix 10} (\texttt{appendix10.tex}, pp.\,284--286): Visual representation of
+four-dimensional space sections. No equations. Flatland analogy: two-dimensional beings
+on planes $\pi_1$, $\pi_2$ infinitesimally separated in a third direction. Method of
+sections for simultaneous depiction of ordinary and mystical space in icons.
+
+\textbf{Appendix 11} (\texttt{appendix11.tex}, pp.\,286--287): The form-constancy
+mechanism and portrait painting. No equations. Explanation of why portraits appear to
+follow viewers; condition for full ``body rotation'' effect (shoulder-line perpendicular
+to picture plane; frame perceived as part of wall). Works cited: \emph{Lady with an
+Ermine} (Leonardo da Vinci); Rokotov, Borovikovsky, Kiprensky, Venetsianov portraits
+(Tretyakov Gallery); Tropinin's \emph{Boy with a Zhaleika}. Fig.\,11.1 placeholder.
+
+\end{document}
